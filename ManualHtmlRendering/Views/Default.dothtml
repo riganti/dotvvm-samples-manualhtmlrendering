@@ -1,0 +1,21 @@
+﻿@viewModel ManualHtmlRendering.ViewModels.DefaultViewModel, ManualHtmlRendering
+@masterPage Views/MasterPage.dotmaster
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <h1>Manual HTML rendering</h1>
+
+    <dot:GridView DataSource="{value: Items}" ID="CarsGrid">
+        <Columns>
+            <dot:GridViewTextColumn HeaderText="Name" ValueBinding="{value: Name}" />
+            <dot:GridViewTextColumn HeaderText="Engine HP" ValueBinding="{value: EngineHorsePower}" />
+            <dot:GridViewTextColumn HeaderText="Year of manufacture" ValueBinding="{value: ManufacturedYear}" />
+            <dot:GridViewTextColumn HeaderText="Max speed" ValueBinding="{value: MaxSpeed}" />
+        </Columns>
+    </dot:GridView>
+
+    <p>
+        <dot:Button Text="Export HTML" Click="{command: ExportHtml()}" />
+    </p>
+
+    <pre>{{value: OutputHtml}}</pre>
+</dot:Content>
